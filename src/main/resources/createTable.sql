@@ -14,3 +14,4 @@ CREATE TABLE Position(
   FOREIGN KEY(memebr_id) REFERENCES Member(id)
 );
 
+        

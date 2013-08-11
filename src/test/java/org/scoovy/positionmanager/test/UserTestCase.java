@@ -2,30 +2,30 @@ package org.scoovy.positionmanager.test;
 
 import org.junit.Test;
 import org.scoovy.positionmanager.model.Point;
-import org.scoovy.positionmanager.model.User;
+import org.scoovy.positionmanager.model.Member;
 import static org.junit.Assert.*;
 public class UserTestCase{
 	private static final String USER_NAME = "tomohiko";
 	private static final String EDUCATION_ID = "11JKM15";
 	
-	private User testUser = new User(EDUCATION_ID, USER_NAME);
+	private Member testUser = new Member(EDUCATION_ID, USER_NAME);
 	public UserTestCase() {
 	}
 	@Test(expected=NullPointerException.class)
 	public void testConstEducateeNumberNull(){
-		new User(null, "tomohiko");
+		new Member(null, "tomohiko");
 	}
 	@Test(expected=IllegalArgumentException.class)
 	public void testConstEducateeNumberEmpty(){
-		new User("", "tomohiko");
+		new Member("", "tomohiko");
 	}
 	@Test(expected=NullPointerException.class)
 	public void testConstEducatNameNull(){
-		new User("11JKM15", null);
+		new Member("11JKM15", null);
 	}
 	@Test(expected=IllegalArgumentException.class)
 	public void testConstNameEmpty(){
-		new User("11JKM15", "");
+		new Member("11JKM15", "");
 	}
 	@Test
 	public void testGetName(){
@@ -39,8 +39,8 @@ public class UserTestCase{
 	public void testEquals(){
 		String falseID = "11JKM14";
 		String falseNmae = "tomohik"; 
-		User trueTestUser = new User(EDUCATION_ID, USER_NAME);
-		User falseTestUser = new User(falseID, falseNmae);
+		Member trueTestUser = new Member(EDUCATION_ID, USER_NAME);
+		Member falseTestUser = new Member(falseID, falseNmae);
 		assertEquals(this.testUser, trueTestUser);
 		assertFalse(falseTestUser.equals(this.testUser));
 	}
@@ -48,7 +48,7 @@ public class UserTestCase{
 	public void testHashCode(){
 		String falseID = "11JKM16";
 		String falseNmae = "tomohikoo";
-		assertEquals(this.testUser.hashCode(), new User(EDUCATION_ID, USER_NAME).hashCode());
-		assertTrue(!(this.testUser.hashCode() == new User(falseID, falseNmae).hashCode()));
+		assertEquals(this.testUser.hashCode(), new Member(EDUCATION_ID, USER_NAME).hashCode());
+		assertTrue(!(this.testUser.hashCode() == new Member(falseID, falseNmae).hashCode()));
 	}
 }

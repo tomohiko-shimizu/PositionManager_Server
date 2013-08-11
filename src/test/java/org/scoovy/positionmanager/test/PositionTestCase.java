@@ -9,10 +9,10 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import org.scoovy.positionmanager.model.Point;
 import org.scoovy.positionmanager.model.Position;
-import org.scoovy.positionmanager.model.User;
+import org.scoovy.positionmanager.model.Member;
 
 public class PositionTestCase {
-	private User testUser = new User("11JKM15", "shimizu");
+	private Member testUser = new Member("11JKM15", "shimizu");
 	private Point[] points = {new Point(1, 1), new Point(1,2)};
 	@Test
 	public void testConstruct() {

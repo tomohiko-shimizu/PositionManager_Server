@@ -11,8 +11,8 @@ import org.joda.time.DateTime;
 public class Position implements Iterable<Point>{
 	private DateTime dateTime;
 	private Set<Point> points;
-	private User user;
-	public Position(DateTime dateTime, User user, Point... points){
+	private Member user;
+	public Position(DateTime dateTime, Member user, Point... points){
 		Validate.notNull(dateTime, "dateTime is null");
 		Validate.notNull(user, "user is null");
 		Validate.notNull(points, "points is null");
@@ -26,7 +26,7 @@ public class Position implements Iterable<Point>{
 	public Set<Point> getPoints() {
 		return new HashSet<Point>(points);
 	}
-	public User getUser() {
+	public Member getUser() {
 		return this.user;
 	}
 	@Override
