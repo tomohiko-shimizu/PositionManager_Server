@@ -9,6 +9,7 @@ import org.apache.commons.lang3.Validate;
 public class Member {
 	private String educationNumber;
 	private String name;
+	private Long id;
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -42,7 +43,7 @@ public class Member {
 	}
 
 	
-	public Member(String educationNumber, String name) {
+	public Member(String educationNumber, String name, long id) {
 		super();
 		Validate.notNull(educationNumber, "educationNumber is null");
 		Validate.notNull(name, "name is null");
@@ -50,8 +51,11 @@ public class Member {
 		Validate.isTrue(!StringUtils.isEmpty(name), "name is Empty");
 		this.educationNumber = educationNumber;
 		this.name = name;
+		this.id = id;
 	}
-	
+	public long getId(){
+		return this.id;
+	}
 	public String getEducationNumber() {
 		return this.educationNumber;
 	}

@@ -20,7 +20,8 @@ public class MemberDaoJDBC implements MemberDao{
 		public Member mapRow(ResultSet resultSet, int rowNum) throws SQLException {
 			String educationNumber = resultSet.getString("educationNumber");
 			String name = resultSet.getString("name");
-			return new Member(educationNumber, name);
+			long id = resultSet.getLong("id");
+			return new Member(educationNumber, name, id);
 		}
 		
 	}
@@ -60,5 +61,15 @@ public class MemberDaoJDBC implements MemberDao{
 	@Override
 	public List<Member> list() {
 		return this.jdbcTempate.query("SELECT * FROM MEMBER ORDER BY educationnumber", new MemberMapper());
+	}
+	
+	@Override
+	public boolean exists(String educationNumber) {
+		int count = this.jdbcTempate.queryForObject(
+			"SELECT COUNT(*) FROM MEMBER WHERE EDUCATIONNUMBER = ?", 
+			Integer.class, 
+			educationNumber
+		);
+		return count == 1;
 	}
 }

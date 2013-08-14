@@ -12,7 +12,7 @@ import org.scoovy.positionmanager.model.Position;
 import org.scoovy.positionmanager.model.Member;
 
 public class PositionTestCase {
-	private Member testUser = new Member("11JKM15", "shimizu");
+	private Member testUser = new Member("11JKM15", "shimizu", 1);
 	private Point[] points = {new Point(1, 1), new Point(1,2)};
 	@Test
 	public void testConstruct() {
