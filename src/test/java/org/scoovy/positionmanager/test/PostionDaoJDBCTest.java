@@ -14,4 +14,8 @@ public class PostionDaoJDBCTest extends AbstractPositionManagerJDBCTestCase{
 	public void testAddPosition(){
 		this.positionDao.addPosition(1L, 301L, Arrays.asList(new Point(1,1)));
 	}
+	@Test
+	public void testGetPositions(){
+		
+	}
 }

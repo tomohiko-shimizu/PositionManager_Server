@@ -2,31 +2,15 @@ package org.scoovy.positionmanager.test;
 
 import static org.junit.Assert.*;
 
-import java.sql.Connection;
-import java.sql.Statement;
 import java.util.List;
-import javax.sql.DataSource;
 import org.dbunit.Assertion;
-import org.dbunit.DataSourceDatabaseTester;
-import org.dbunit.IDatabaseTester;
-import org.dbunit.dataset.IDataSet;
 import org.dbunit.dataset.ITable;
 import org.dbunit.dataset.filter.DefaultColumnFilter;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
-import org.dbunit.operation.DatabaseOperation;
-import org.h2.util.JdbcUtils;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.scoovy.positionmanager.dao.MemberDao;
 import org.scoovy.positionmanager.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestExecutionListeners;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
-import com.github.springtestdbunit.DbUnitTestExecutionListener;
 
 
 public class MemberDaoJDBCTest extends AbstractPositionManagerJDBCTestCase{

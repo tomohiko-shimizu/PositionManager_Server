@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ PointTestCase.class, PositionTestCase.class, UserTestCase.class })
+@SuiteClasses({ PointTestCase.class, UserTestCase.class })
 public class DomainTest {
 
 }
