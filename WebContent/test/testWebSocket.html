@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>test Web Socket</title>
+	<script type="text/javascript" src="../javascripts/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="../javascripts/jquery.websocket-0.0.1.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var ws = new WebSocket("ws://localhost:8080/PositionManager_Server/push?id=11JK150");
+			ws.onOpen = function(){
+				$("body").append("ws:start");
+			};
+			ws.onmessage = function(message){
+				console.log(message);
+			}
+			ws.onClose = function(){
+				alert("web socket is closed");
+			}
+			
+			 $(window).unload(function() {
+			     var code = 4500;
+			     var reason = "クライアントが閉じられました。";
+			     alert("close websocket");
+			     ws.close(code,reason);
+			 });
+			$("div").click(function(){
+				ws.send(
+					'{"points":[{"x":1,"y":1},{"x":1,"y":2},{"x":1,"y":3}],"educationNumber":"11JKM13","roomId":301}'
+				);
+			})
+		})
+	</script>
+</head>
+<body>
+	<div style="width: 100px;height: 100px; background: yellow"></div>
+</body>
+</html>

@@ -3,7 +3,6 @@ package org.scoovy.positionmanager.dao.jdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-
 import org.scoovy.positionmanager.dao.MemberDao;
 import org.scoovy.positionmanager.model.Member;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +36,8 @@ public class MemberDaoJDBC implements MemberDao{
 			.addValue("PASSWORD", password);
 		try{
 			return this.npJdbcTemplate.queryForObject(
-				"SELECT * FROM MEMBER WHERE educationnumber = :EDUCATION_NUMBER AND PASSWORD = :PASSWORD", 
+				"SELECT * FROM MEMBER WHERE " +
+						"educationnumber = :EDUCATION_NUMBER AND PASSWORD = :PASSWORD", 
 				map, 
 				new MemberMapper()
 			);			
@@ -71,5 +71,27 @@ public class MemberDaoJDBC implements MemberDao{
 			educationNumber
 		);
 		return count == 1;
+	}
+	@Override
+	public Member findByEducationNumber(String educationNumber) {
+		try{
+			return this.jdbcTempate.queryForObject(
+				"SELECT * FROM member where educationnumber = ?",  new MemberMapper(), educationNumber);
+		}catch(EmptyResultDataAccessException e){
+			return null;
+		}
+	}
+	@Override
+	public Member findByID(Long id) {
+		try{
+			return this.jdbcTempate.queryForObject(
+				"SELECT * FROM member where id = ?",  new MemberMapper(), id);
+		}catch(EmptyResultDataAccessException e){
+			return null;
+		}
+	}
+	@Override
+	public boolean exists(Long id) {
+		return this.findByID(id) != null;
 	}
 }

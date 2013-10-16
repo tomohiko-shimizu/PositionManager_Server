@@ -1,7 +1,10 @@
 package org.scoovy.positionmanager.model;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 /**
  * @author tomohiko
  *
@@ -12,34 +15,12 @@ public class Member {
 	private Long id;
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((educationNumber == null) ? 0 : educationNumber.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return result;
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Member other = (Member) obj;
-		if (educationNumber == null) {
-			if (other.educationNumber != null)
-				return false;
-		} else if (!educationNumber.equals(other.educationNumber))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
-			return false;
-		return true;
+		return EqualsBuilder.reflectionEquals(this, obj);
 	}
 
 	
@@ -65,8 +46,7 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return "User [educationNumber=" + educationNumber + ", name=" + name
-				+ "]";
+		return ToStringBuilder.reflectionToString(this);
 	}
 	
 	

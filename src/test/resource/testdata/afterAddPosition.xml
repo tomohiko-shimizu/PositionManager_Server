@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+   <MEMBER ID="1" EDUCATIONNUMBER= "11JKM15"  NAME="shimizu" PASSWORD="dcldcl"/>
+   <MEMBER ID="2" EDUCATIONNUMBER= "11JKM10"  NAME="taguchi" PASSWORD="static"/>
+   <MEMBER ID="3" EDUCATIONNUMBER= "13JKM120" NAME="kikuchi" PASSWORD="fclgcl"/>
+   <POSITION X="1" Y="1" room="301" member_id="1" date="2013-8-14 10:10:10"/>
+   <POSITION X="1" Y="2" room="301" member_id="1" date="2013-8-14 10:10:11"/>
+   <POSITION X="2" Y="1" room="301" member_id="1" date="2013-8-14 10:10:12"/>
+   <POSITION X="1" Y="1" room="302" member_id="1" date="2013-8-14 11:10:10"/>
+   <POSITION X="1" Y="2" room="302" member_id="1" date="2013-8-14 11:10:11"/>
+   <POSITION X="2" Y="1" room="302" member_id="1" date="2013-8-14 11:10:12"/>
+   <POSITION X="1" Y="1" room="301" member_id="2" date="2013-8-14 10:10:10"/>
+   <POSITION X="1" Y="2" room="301" member_id="2" date="2013-8-14 10:10:11"/>
+   <POSITION X="2" Y="1" room="301" member_id="2" date="2013-8-14 10:10:12"/>
+   <POSITION X="1" Y="1" room="302" member_id="2" date="2013-8-14 11:10:10"/>
+   <POSITION X="1" Y="2" room="302" member_id="2" date="2013-8-14 11:10:11"/>
+   <POSITION X="2" Y="1" room="302" member_id="2" date="2013-8-14 11:10:12"/>
+   <POSITION X="1000" Y="2000" room="301" member_id="1" date="2013-8-11 13:10:11"/>
+</dataset>

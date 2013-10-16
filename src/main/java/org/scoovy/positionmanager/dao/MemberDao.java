@@ -8,4 +8,7 @@ public interface MemberDao {
 	public void addMember(Member member, String password);
 	public List<Member> list();
 	public boolean exists(String educationNumber);
+	public Member findByID(Long id);
+	public Member findByEducationNumber(String educationNumber);
+	public boolean exists(Long id);
 }

@@ -6,31 +6,32 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.scoovy.positionmanager.dao.MemberDao;
+import org.scoovy.positionmanager.map.PositionMapper;
+import org.scoovy.positionmanager.model.Member;
+import org.scoovy.positionmanager.service.MemberManager;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 /**
  * Servlet implementation class Entry
  */
-@WebServlet("/Entry")
+@WebServlet("/entry")
 public class Entry extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-    /**
-     * Default constructor. 
-     */
+	
     public Entry() {
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		WebApplicationContext wac = WebApplicationContextUtils
+		        .getRequiredWebApplicationContext(this.getServletContext());
+		MemberManager manager = wac.getBean(MemberManager.class);
+		request.setAttribute("members", manager.list());
+		request.getRequestDispatcher("/members.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 	}
 
 }

@@ -1,12 +1,15 @@
 package org.scoovy.positionmanager.model;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang3.Validate;
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 
 public class Point {
 	@Override
 	public String toString() {
-		return "Point [x=" + x + ", y=" + y + "]";
+		return ToStringBuilder.reflectionToString(this);
 	}
 	private int x;
 	private int y;
@@ -25,25 +28,10 @@ public class Point {
 	}
 	@Override
 	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + x;
-		result = prime * result + y;
-		return result;
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Point other = (Point) obj;
-		if (this.x != other.x)
-			return false;
-		if (this.y != other.y)
-			return false;
-		return true;
+		return EqualsBuilder.reflectionEquals(this, obj);
 	}
 }

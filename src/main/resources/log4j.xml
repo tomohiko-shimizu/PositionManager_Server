@@ -6,20 +6,32 @@
         <param name="ConversionPattern" value="%d %-5p %c{2} - %m%n" />
      </layout>
   </appender>
-  <logger name="org.springframework.beans">
+  <logger name="org.scoovy.positionmanager.servlet.PushServlet">
       <level value="debug"/>
+      <appender-ref ref="stdout"/>
+  </logger>
+  <logger name="org.scoovy.positionmanager.push">
+      <level value="debug"/>
+      <appender-ref ref="stdout"/>
+  </logger>
+  <logger name="org.springframework.beans">
+      <level value="info"/>
       <appender-ref ref="stdout"/>
   </logger>
   <logger name="org.springframework.transaction">
-      <level value="debug"/>
+      <level value="info"/>
       <appender-ref ref="stdout"/>
   </logger>
   <logger name="org.springframework.jdbc.core.JdbcTemplate">
-  	<level value="debug" />
+  	<level value="info" />
   	<appender-ref ref="stdout"/>
   </logger>
   <logger name="org.springframework.jdbc.core.StatementCreatorUtils">
-    <level value="debug" />
+    <level value="info" />
+    <appender-ref ref="stdout"/>
+  </logger>
+  <logger name="org.scoovy.positionmanager.servlet.BootStrap">
+    <level value="info" />
     <appender-ref ref="stdout"/>
   </logger>
 </log4j:configuration>    
